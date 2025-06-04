@@ -9,20 +9,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Toggle global para los idiomas -->
+    <input type="checkbox" id="languageToggle" hidden>
 
     <header>
         <img src="https://q10storage.blob.core.windows.net/q10academico-public/980080010934/980080010934.png?nocache" alt="Logo">
     </header>
 
     <div class="hero">
-        <h1 id="hero-title">Software Developer Career</h1>
-        <p id="hero-subtitle">Building the future, one line of code at a time</p>
-        
-        <!-- Interruptor de idioma -->
+        <h1 class="lang-en">Software Developer Career</h1>
+        <h1 class="lang-es">Carrera de Desarrollador de Software</h1>
+        <p class="lang-en">Building the future, one line of code at a time</p>
+        <p class="lang-es">Construyendo el futuro, una línea de código a la vez</p>
+
         <div class="language-switch">
             <span>English</span>
-            <label class="switch">
-                <input type="checkbox" id="languageToggle">
+            <label class="switch" for="languageToggle">
                 <span class="slider"></span>
             </label>
             <span>Español</span>
@@ -30,13 +32,114 @@
     </div>
 
     <section id="content" class="container">
-        <!-- Contenido dinámico cargado desde JS -->
+        <h2 class="lang-en">What does this profession involve?</h2>
+        <h2 class="lang-es">¿De qué trata esta profesión?</h2>
+        <p class="lang-en">Building, testing, and maintaining software applications using programming languages and frameworks.</p>
+        <p class="lang-es">Construcción, prueba y mantenimiento de aplicaciones de software utilizando lenguajes de programación y frameworks.</p>
+
+        <details class="accordion">
+            <summary>
+                <span class="lang-en">Main Responsibilities</span>
+                <span class="lang-es">Responsabilidades Principales</span>
+            </summary>
+            <ul>
+                <li class="lang-en">Writing clean, efficient code</li>
+                <li class="lang-es">Escribir código limpio y eficiente</li>
+                <li class="lang-en">Designing software architecture and databases</li>
+                <li class="lang-es">Diseñar arquitecturas de software y bases de datos</li>
+                <li class="lang-en">Debugging and troubleshooting issues</li>
+                <li class="lang-es">Depurar y solucionar problemas</li>
+                <li class="lang-en">Collaborating with designers and developers</li>
+                <li class="lang-es">Colaborar con diseñadores y desarrolladores</li>
+                <li class="lang-en">Running tests to ensure quality</li>
+                <li class="lang-es">Realizar pruebas para asegurar calidad</li>
+                <li class="lang-en">Keeping up with new technologies</li>
+                <li class="lang-es">Mantenerse actualizado con nuevas tecnologías</li>
+            </ul>
+        </details>
+
+        <details class="accordion">
+            <summary>
+                <span class="lang-en">Required Skills</span>
+                <span class="lang-es">Habilidades Requeridas</span>
+            </summary>
+            <ul>
+                <li class="lang-en">Programming: Python, JavaScript</li>
+                <li class="lang-es">Programación: Python, JavaScript</li>
+                <li class="lang-en">Database Management: SQL, NoSQL</li>
+                <li class="lang-es">Gestión de Bases de Datos: SQL, NoSQL</li>
+                <li class="lang-en">Web Development: HTML, CSS, React</li>
+                <li class="lang-es">Desarrollo Web: HTML, CSS, React</li>
+            </ul>
+        </details>
+
+        <details class="accordion">
+            <summary>
+                <span class="lang-en">Work Opportunities</span>
+                <span class="lang-es">Oportunidades Laborales</span>
+            </summary>
+            <ul>
+                <li class="lang-en">Tech companies and startups</li>
+                <li class="lang-es">Empresas tecnológicas y startups</li>
+                <li class="lang-en">Software giants (Google, Microsoft, Amazon)</li>
+                <li class="lang-es">Gigantes del software (Google, Microsoft, Amazon)</li>
+                <li class="lang-en">Banks, hospitals, and enterprises</li>
+                <li class="lang-es">Bancos, hospitales y grandes empresas</li>
+                <li class="lang-en">Freelance or remote work</li>
+                <li class="lang-es">Trabajo freelance o remoto</li>
+            </ul>
+        </details>
+
+        <details class="accordion">
+            <summary>
+                <span class="lang-en">Why Choose This Career?</span>
+                <span class="lang-es">¿Por qué elegir esta carrera?</span>
+            </summary>
+            <ul>
+                <li class="lang-en">Passion for technology and problem-solving</li>
+                <li class="lang-es">Pasión por la tecnología y la resolución de problemas</li>
+                <li class="lang-en">High demand and great salary potential</li>
+                <li class="lang-es">Alta demanda y excelente potencial salarial</li>
+                <li class="lang-en">Opportunity to work on innovative projects</li>
+                <li class="lang-es">Oportunidad de trabajar en proyectos innovadores</li>
+                <li class="lang-en">Flexibility with remote options</li>
+                <li class="lang-es">Flexibilidad con opciones remotas</li>
+            </ul>
+        </details>
+    </section>
+
+    <section id="subjects" class="container">
+        <h2 class="lang-en">Subjects</h2>
+        <h2 class="lang-es">Materias</h2>
+        <div class="filter-options">
+            <input type="radio" name="filter" id="filter-all" checked>
+            <label for="filter-all">
+                <span class="lang-en">With optional</span>
+                <span class="lang-es">Con opcionales</span>
+            </label>
+            <input type="radio" name="filter" id="filter-mandatory">
+            <label for="filter-mandatory">
+                <span class="lang-en">Only subjects</span>
+                <span class="lang-es">Solo materias</span>
+            </label>
+            <input type="radio" name="filter" id="filter-optional">
+            <label for="filter-optional">
+                <span class="lang-en">Only optional</span>
+                <span class="lang-es">Solo opcionales</span>
+            </label>
+        </div>
+        <ul class="subject-list">
+            <li class="mandatory"><span class="lang-en">Algorithms</span><span class="lang-es">Algoritmos</span></li>
+            <li class="mandatory"><span class="lang-en">Databases</span><span class="lang-es">Bases de datos</span></li>
+            <li class="mandatory"><span class="lang-en">Web Development</span><span class="lang-es">Desarrollo web</span></li>
+            <li class="optional"><span class="lang-en">UI Design</span><span class="lang-es">Diseño de interfaces</span></li>
+            <li class="optional"><span class="lang-en">Mobile Development</span><span class="lang-es">Desarrollo móvil</span></li>
+        </ul>
     </section>
 
     <footer>
-        <p id="footer-text">RAYO PALATIANOS - IES CINOC</p>
+        <p class="lang-en">RAYO PALATIANOS - IES CINOC</p>
+        <p class="lang-es">RAYO PALATIANOS - IES CINOC</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
