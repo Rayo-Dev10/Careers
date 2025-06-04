@@ -159,30 +159,10 @@ details.accordion ul li:hover {
     font-weight: 900;
 }
 
-/* Filtros de materias */
-#subjects .filter-options {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+/* Subject list */
+.subject-list li {
+    display: block;
 }
-
-#subjects .filter-options input {
-    display: none;
-}
-
-#subjects .filter-options label {
-    background: var(--card-bg);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.subject-list li { display: none; }
-#filter-all:checked ~ .subject-list li { display: block; }
-#filter-mandatory:checked ~ .subject-list li.mandatory { display: block; }
-#filter-mandatory:checked ~ .subject-list li.optional { display: none; }
-#filter-optional:checked ~ .subject-list li.mandatory { display: none; }
-#filter-optional:checked ~ .subject-list li.optional { display: block; }
 
 /* Pie de página */
 footer {
