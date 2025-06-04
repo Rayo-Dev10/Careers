@@ -3,7 +3,7 @@
     --gradient-primary: linear-gradient(135deg, #1e3c72, #2a5298);
     --gradient-accent: linear-gradient(135deg, #ff7e5f, #feb47b);
     --card-bg: rgba(255, 255, 255, 0.1);
-    --item-bg: rgba(255, 255, 255, 0.2); /* Fondo claro para cada item */
+    --item-bg: rgba(255, 255, 255, 0.2);
     --text-color: #e0e0e0;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
@@ -25,7 +25,13 @@ body {
     align-items: center;
 }
 
-/* Estilos del encabezado */
+/* Idiomas */
+.lang-en { display: block; }
+.lang-es { display: none; }
+#languageToggle:checked ~ * .lang-en { display: none; }
+#languageToggle:checked ~ * .lang-es { display: block; }
+
+/* Encabezado */
 header {
     text-align: center;
     padding: 2rem;
@@ -36,7 +42,7 @@ header img {
     height: auto;
 }
 
-/* Estilos del HERO */
+/* HERO */
 .hero {
     text-align: center;
     padding: 3rem 2rem;
@@ -46,7 +52,7 @@ header img {
     width: 100%;
 }
 
-/* Estilos del interruptor de idioma */
+/* Interruptor de idioma */
 .language-switch {
     display: flex;
     justify-content: center;
@@ -62,13 +68,7 @@ header img {
     height: 24px;
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
+.switch .slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -80,7 +80,7 @@ header img {
     border-radius: 24px;
 }
 
-.slider:before {
+.switch .slider:before {
     position: absolute;
     content: "";
     height: 18px;
@@ -92,77 +92,61 @@ header img {
     border-radius: 50%;
 }
 
-input:checked + .slider {
+#languageToggle:checked ~ * .language-switch .slider {
     background-color: #ff7e5f;
 }
 
-input:checked + .slider:before {
+#languageToggle:checked ~ * .language-switch .slider:before {
     transform: translateX(26px);
 }
 
-/* Contenedor del contenido */
+/* Contenedor */
 .container {
     width: 80%;
     margin: 2rem auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    grid-template-rows: repeat(2, auto); /* 2 filas */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
     gap: 1.5rem;
 }
 
-/* Estilos de los acordeones */
-.accordion {
+/* Acordeones usando details */
+details.accordion {
     background: var(--card-bg);
     padding: 1.2rem;
     border-radius: 10px;
     box-shadow: var(--shadow);
+}
+
+details.accordion summary {
+    list-style: none;
     cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-    backdrop-filter: blur(0px); /* Inicialmente sin blur */
-}
-
-.accordion:hover {
-    transform: translateY(-3px);
-}
-
-/* Difuminado en los acordeones inactivos */
-.accordion.inactive {
-    filter: blur(4px);
-    opacity: 0.6;
-    pointer-events: none; /* Evita que se puedan hacer clic */
-}
-
-/* Acordeón activo sin difuminado */
-.accordion.active {
-    filter: blur(0px);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Estilos del encabezado del acordeón */
-.accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.accordion-title {
-    font-size: 1.2rem;
+details.accordion summary::-webkit-details-marker {
+    display: none;
 }
 
-/* Contenido de los acordeones */
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
+details.accordion summary::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078";
+    transition: transform 0.3s;
 }
 
-.accordion-content ul {
-    padding: 10px 0;
+details.accordion[open] summary::after {
+    transform: rotate(180deg);
+}
+
+details.accordion ul {
     list-style: none;
+    padding: 10px 0;
 }
 
-.accordion-content ul li {
+details.accordion ul li {
     padding: 10px;
     background: var(--item-bg);
     margin: 5px 0;
@@ -170,15 +154,41 @@ input:checked + .slider:before {
     transition: background 0.3s ease, font-weight 0.3s ease;
 }
 
-.accordion-content ul li:hover {
+details.accordion ul li:hover {
     background: rgba(255, 255, 255, 0.3);
     font-weight: 900;
 }
 
-/* Estilos del pie de página */
+/* Filtros de materias */
+#subjects .filter-options {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#subjects .filter-options input {
+    display: none;
+}
+
+#subjects .filter-options label {
+    background: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subject-list li { display: none; }
+#filter-all:checked ~ .subject-list li { display: block; }
+#filter-mandatory:checked ~ .subject-list li.mandatory { display: block; }
+#filter-mandatory:checked ~ .subject-list li.optional { display: none; }
+#filter-optional:checked ~ .subject-list li.mandatory { display: none; }
+#filter-optional:checked ~ .subject-list li.optional { display: block; }
+
+/* Pie de página */
 footer {
     text-align: center;
     padding: 2rem;
     font-size: 1rem;
     opacity: 0.8;
 }
+
